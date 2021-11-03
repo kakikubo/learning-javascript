@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>例2-1 escape関数を使った文字列の変換</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      //<![CDATA[
+      var sOne = escape('http://oreilly.com');
+      document.writeln('<p>' + sOne + '</p>');
+
+      var sTwo = escape(
+        'https://search.yahoo.co.jp/search?p=%E9%81%B8%E6%8C%99&fr=top_ga1_sa&ei=UTF-8&ts=1076&aq=-1&oq=&at=&ai=bdc160e8-66b5-42ed-91ab-b81a28e18215'
+      );
+      document.writeln('<p>' + sTwo + '</p>');
+
+      var sURL = "http://oreilly.com/this_is_a_value&some-value='some value'";
+      sURL = encodeURI(sURL);
+      document.writeln('<p>' + sURL + '</p>');
+
+      document.writeln('\u7231');
+
+      var sum = 35.0;
+      var string_value = '合計' + sum + ' ドルです';
+      console.log(string_value);
+      //]]
+    </script>
+  </body>
+</lang:html>
