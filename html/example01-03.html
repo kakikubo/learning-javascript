@@ -2,16 +2,14 @@
 <lang:html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Hello world</title>
+    <title>例1-3 onloadの利用</title>
     <script type="text/javascript" defer="defer">
-      var dt = Date();
-      var msg = 'Hello World ' + dt.toString() + '<br/>';
-
-      // どちらも同じ意味になる
-      var dt2 = Date().toString();
-      var msg2 = 'Hello World ' + dt2 + '<br/>';
-      document.writeln(msg);
-      document.writeln(msg2);
+      function sayHello() {
+        var dt = Date();
+        var msg = 'Hello World ' + dt;
+        document.writeln(msg);
+      }
     </script>
   </head>
+  <body onload="sayHello()"></body>
 </lang:html>
