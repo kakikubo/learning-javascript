@@ -1,0 +1,16 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>例1-3 onloadの利用</title>
+    <script type="text/javascript" defer="defer">
+      document.onLoad = hello();
+      function hello() {
+        var dt = Date();
+        var msg = 'Hello World ' + dt;
+        document.writeln(msg);
+      }
+    </script>
+  </head>
+  <body></body>
+</lang:html>
