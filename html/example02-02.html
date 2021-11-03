@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>例2-1 escape関数を使った文字列の変換</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      //<![CDATA[
+      var sNum = '1.23e-2';
+      document.writeln(parseFloat(sNum));
+
+      var fValue = parseFloat('1.45inch');
+      document.writeln('<p>' + fValue + '</p>');
+
+      var iValue = parseInt('33.00');
+      document.writeln('<p>' + iValue + '</p>');
+
+      var iValue = parseInt('100', 8);
+      document.writeln('<p>' + iValue + '</p>');
+
+      var iValue = parseInt('B2', 16);
+      document.writeln('<p>' + iValue + '</p>');
+      //]]
+    </script>
+  </body>
+</lang:html>
