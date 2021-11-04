@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>例3-4 switch文</title>
+    <script type="text/javascript" defer="defer">
+      // <![CDATA[
+      var prefCode = '愛媛';
+      var taxPercentage = 0.0;
+
+      switch (prefCode) {
+        case '愛知':
+          taxPercentage = 5.5;
+          break;
+        case '長野':
+          taxPercentage = 5.5;
+          break;
+        case '福井':
+        case '栃木':
+        case '青森':
+          taxPercentage = 6.5;
+          break;
+        case '熊本':
+          taxPercentage = 6.5;
+          break;
+        default:
+          taxPercentage = 8.0;
+          break;
+      }
+      console.log(taxPercentage);
+      // ]]
+    </script>
+  </head>
+  <body>
+    <p>都道府県を選択するコードがここにあると仮定</p>
+  </body>
+</lang:html>
