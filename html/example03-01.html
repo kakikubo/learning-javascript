@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>例3-1 バイナリフラグの利用</title>
+    <script type="text/javascript" defer="defer">
+      // <![CDATA[
+      var FIELD_A = 0x1; // 00001
+      var FIELD_B = 0x2; // 00010
+      var FIELD_C = 0x4; // 00100
+      var FIELD_D = 0x8; // 01000
+      var FIELD_E = 0x10; // 01000
+
+      // 項目AとCとEに入力があったと仮定
+      var fieldSet = FIELD_A | FIELD_C | FIELD_E;
+
+      if (fieldSet & FIELD_A && fieldSet & FIELD_C) {
+        console.log('フィールドAとCがセットされている');
+      }
+
+      // ]]
+    </script>
+  </head>
+  <body>
+    <p>ここに5つのフィールドと一つのボタンがあると仮定…</p>
+  </body>
+</lang:html>
