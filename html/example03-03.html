@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>例3-3 複雑な条件文</title>
+    <script type="text/javascript" defer="defer">
+      // <![CDATA[
+      var prefCode = '長野';
+
+      if (prefCode == '長野') {
+        taxPercentage = 9.5;
+      } else if (prefCode == '福井') {
+        taxPercentage = 6.5;
+      } else if (prefCode == '熊本') {
+        taxPercentage = 7.0;
+      } else {
+        taxPercentage = 8.0;
+      }
+      console.log(taxPercentage);
+      // ]]
+    </script>
+  </head>
+  <body>
+    <p>都道府県を選択するコードがここにあると仮定</p>
+  </body>
+</lang:html>
