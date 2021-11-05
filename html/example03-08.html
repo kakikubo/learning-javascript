@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>例3-8 オブジェクトのプロパティ一覧</title>
+    <h1>オブジェクトのプロパティ一覧</h1>
+    <p>オブジェクトdocumentのもつプロパティを列挙する</p>
+    <script type="text/javascript" defer="defer">
+      // <![CDATA[
+
+      for (docprop in document) {
+        document.writeln(docprop + "=");
+        eval ("document.writeln(document." + docprop + ")");
+        document.writeln("<br />");
+      }
+      // 条件判断にも使える
+      if ("URL" in document) {
+        console.log("URLがあります。" + document.URL);
+      }
+
+      // ]]
+    </script>
+  </head>
+  <body>
+  </body>
+</lang:html>
