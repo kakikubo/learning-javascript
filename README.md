@@ -44,7 +44,7 @@ var someString =
 ### exam2-4
 
 ```javascript
-var str = "432.54";
+var str = '432.54';
 console.log(parseInt(str));
 console.log(parseInt(str, 16));
 console.log(parseInt(str, 8));
@@ -54,3 +54,50 @@ console.log(parseInt(str, 8));
 
 できない、という回答。。。
 if (someMonth == null)
+
+### exam3-1
+
+```javascript
+var valA = 37;
+var valB = 3;
+var valC = 18;
+// var resultOfComp = valA - valB % 3 / 2 * 4 + valC - 3;
+var resultOfComp = (((valA - valB) % 3) / 2) * (4 + valC) - 3;
+```
+
+### exam3-2
+
+```javascript
+switch (val) {
+  case 'one':
+  case 'two':
+    console.log('OK');
+    break;
+  case 'three':
+    console.log('OK2');
+    break;
+  default:
+    console.log('NONE');
+}
+```
+
+### exam3-3
+
+```javascript
+var varOne = 33;
+var varTwo = 100;
+var varThree = 0;
+if (varOne == 33 && varTwo >= 100 && varThree > 0)
+```
+
+### exam3-4
+
+```javascript
+for (var i = 11; 10 < i && i < 20; i++) console.log(i);
+```
+
+### exam3-5
+
+```javascript
+for (var i = 19; 10 < i && i < 20; i--) console.log(i);
+```
