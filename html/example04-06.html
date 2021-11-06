@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>例4-6 繰り返し文字のパターン</title>
+    <script type="text/javascript" defer="defer">
+      // <![CDATA[
+      var regExp = /:\D*\s\d+\s\d+/;
+      var str = 'This is a date: June 24 2007';
+      var resultString = str.match(regExp);
+      document.writeln('抽出された日付 ' + resultString + '<br />');
+      var regExp = /:[^0-9]*\s[0-9]+\s[0-9]+/;
+      var resultString = str.match(regExp);
+      document.writeln('抽出された日付 ' + resultString + '<br />');
+
+      var rgExp = /^(\D*)([-0-9]+)(.*)$/;
+      var str = '私の電話番号は080-9988-0009です';
+      str.match(rgExp);
+      document.writeln(RegExp.$1 + '<br />');
+      document.writeln(RegExp.$2 + '<br />');
+      document.writeln(RegExp.$3 + '<br />');
+      document.writeln(RegExp.$0 + '<br />'); // これはなぜか出力されない。仕様が変わったのだろうか。
+      // ]]
+    </script>
+  </head>
+  <body></body>
+</lang:html>
