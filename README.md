@@ -93,11 +93,44 @@ if (varOne == 33 && varTwo >= 100 && varThree > 0)
 ### exam3-4
 
 ```javascript
-for (var i = 11; 10 < i && i < 20; i++) console.log(i);
+for (var i = 11; i < 20; i++) console.log(i);
 ```
 
 ### exam3-5
 
 ```javascript
-for (var i = 19; 10 < i && i < 20; i--) console.log(i);
+for (var i = 19; i > 10; i--) console.log(i);
+```
+
+### exam4-1
+
+```javascript
+var str = 'The fun of functions is that they are functional.';
+var regex = /\bfun\b/;
+str.replace(regex, 'power');
+```
+
+### exam4-2
+
+```js
+var date = new Date();
+date.setDate(date.getDate() + 3);
+console.log(date.toLocalDateString());
+```
+
+### exam4-3
+
+```js
+Math.ceil(34.44); // 切り上げ
+Math.floor(34.44); // 切り下げ
+```
+
+### exam4-4
+
+```js
+var str = 'apple,orange-strawberry,lemon-.lime';
+var regex = /[,.]/g;
+str = str.replace(regex, ',');
+var newArray = str.split(',');
+for (var i in newArray) console.log(newArray[i]);
 ```
