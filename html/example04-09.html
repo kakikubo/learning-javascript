@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>例4-9 乱数</title>
+    <script type="text/javascript" defer="defer">
+      // <![CDATA[
+      document.writeln(random10());
+      document.writeln('<br />');
+      document.writeln(random10());
+      document.writeln('<br />');
+      document.writeln(random10());
+      document.writeln('<br />');
+      document.writeln(random10());
+      document.writeln('<br />');
+
+      function random10() {
+        var x = Math.random();
+        x *= 10;
+        x = Math.floor(x);
+        x += 1;
+        return x;
+      }
+      // ]]
+    </script>
+  </head>
+  <body></body>
+</lang:html>
