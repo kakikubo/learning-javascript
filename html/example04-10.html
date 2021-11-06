@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>例4-10 待ち行列</title>
+    <script type="text/javascript" defer="defer">
+      // <![CDATA[
+      // FIFO待ち行列を作成し、pushを使ってアイテムを追加
+      var fifoArray = new Array();
+      fifoArray.push('りんご');
+      fifoArray.push('バナナ');
+      var ln = fifoArray.push('桜桃');
+
+      // 長さと配列を表示
+      document.writeln(
+        '長さは ' + ln + 'で、行列の順番は' + fifoArray + 'です<br />'
+      );
+      // shift を使って要素を取り出す
+      for (var i = 0; i < ln; i++) {
+        document.writeln(
+          fifoArray.shift() +
+            'を取り出します。今の順番は[' +
+            fifoArray +
+            ']です <br />'
+        );
+      }
+      // 長さを表示
+      document.writeln('長さは ' + fifoArray.length + 'となりました<br />');
+
+      // 次にunshiftとpopも同様に行う
+      var fifoNewArray = new Array();
+      fifoNewArray.unshift('はじめての');
+      fifoNewArray.unshift('Java');
+      ln = fifoNewArray.unshift('Script');
+
+      document.writeln(
+        '長さは ' + ln + 'で、配列は[' + fifoNewArray + ']となりました<br />'
+      );
+
+      // pop
+      for (i = 0; i < ln; i++) {
+        document.writeln(
+          '「' +
+            fifoNewArray.pop() +
+            '」を取り出します。配列は[' +
+            fifoNewArray +
+            ']となりました<br />'
+        );
+      }
+      document.writeln('長さは' + fifoNewArray.length + 'になりました<br />');
+
+      // for ... in ループを使う
+      var programLanguages = new Array(
+        'C++',
+        'Pascal',
+        'FORTRAN',
+        'BASIC',
+        'C#',
+        'Java',
+        'Perl',
+        'JavaScript'
+      );
+      for (var itemIndex in programLanguages) {
+        document.writeln(programLanguages[itemIndex] + '<br />');
+      }
+
+      // ]]
+    </script>
+  </head>
+  <body></body>
+</lang:html>
