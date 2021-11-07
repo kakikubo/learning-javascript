@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>例6-5 イベントハンドラとthis</title>
+    <script type="text/javascript" defer="defer">
+      // <![CDATA[
+      window.onload = setObjects;
+
+      function setObjects() {
+        document.personData.lastName.onblur = sayHello;
+      }
+
+      function sayHello() {
+        alert('こんにちわ ' + this.value + 'さん');
+      }
+      // ]]
+    </script>
+  </head>
+  <body>
+    <form name="personData">
+      姓: <input type="text" name="lastName" /><br /> 名:
+      <input type="text" name="firstName" />
+    </form>
+  </body>
+</lang:html>

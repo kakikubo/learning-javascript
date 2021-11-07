@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>例6-6 イベントの捕捉</title>
+    <script type="text/javascript" defer="defer">
+      // <![CDATA[
+      function writeX(evnt) {
+        alert('捕捉したイベント: ' + evnt.target + ' ' + evnt.currentTarget);
+        return true;
+      }
+      function writeY(evnt) {
+        alert('バブリングアップ: ' + evnt.target + ' ' + evnt.currentTarget);
+        return true;
+      }
+      window.onload = setup;
+
+      function setup(evnt) {
+        // イベントの捕捉
+        document.addEventListener('click', writeX, true);
+        document.forms[0].addEventListener('click', writeX, true);
+        document.forms[0].elements[0].addEventListener('click', writeX, true);
+
+        // バブルアップイベント
+        document.addEventListener('click', writeY, false);
+        document.forms[0].addEventListener('click', writeY, false);
+        document.forms[0].elements[0].addEventListener('click', writeY, false);
+      }
+
+      function stopNow() {
+        document.removeEventListener('click', writeX, true);
+        document.forms[0].removeEventListener('click', writeX, true);
+        document.forms[0].elements[0].removeEventListener(
+          'click',
+          writeX,
+          true
+        );
+      }
+
+      // ]]
+    </script>
+  </head>
+  <body>
+    <form
+      style="background-color: #f00; width: 100px; height: 100px; padding: 10px"
+    >
+      <input type="submit" value="送信" /><br />
+    </form>
+    <p><a href="" onclick="stopNow(); return false">停止</a></p>
+  </body>
+</lang:html>
