@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>例5-2 関数を動的に生成</title>
+    <script type="text/javascript" defer="defer">
+      // <![CDATA[
+      var func = prompt('関数の定義を入力してください');
+      var x = prompt('引数xの値は:');
+      var y = prompt('引数yの値は:');
+
+      // 無名関数を起動
+      var op = new Function('x', 'y', func);
+      var theAnswer = op(x, y);
+      // 結果を出力
+      document.writeln('関数の定義:' + func + '<br />');
+      document.writeln('引数xの値:' + x + '<br />引数yの値:' + y + '<br />');
+      document.writeln('結果:' + theAnswer + '<br />');
+      // ]]
+    </script>
+  </head>
+  <body></body>
+</lang:html>
