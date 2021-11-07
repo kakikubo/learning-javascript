@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>例5-1 値呼び出しと参照呼び出し</title>
+    <script type="text/javascript" defer="defer">
+      // <![CDATA[
+      function alterArgs(strLiteral, aryObject) {
+        strLiteral = '変更した';
+        aryObject[aryObject.length] = 'three';
+      }
+
+      var str = 'オリジナルの文字列';
+      var ary = new Array('one', 'two');
+
+      document.writeln('<h3>呼び出し前の値</h3>');
+      document.writeln('strの値:' + str + '<br />');
+      document.writeln('配列の各要素の値:' + ary + '<br />');
+
+      alterArgs(str, ary);
+
+      document.writeln('<h3>呼び出し後の値</h3>');
+      document.writeln('strの値:' + str + '<br />');
+      document.writeln('配列の各要素の値:' + ary + '<br />');
+
+      // ]]
+    </script>
+  </head>
+  <body></body>
+</lang:html>
