@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>例5-4 Arrayのフィルタとコールバック関数</title>
+    <script type="text/javascript" defer="defer">
+      // <![CDATA[
+      // 範囲をチェックするコールバック関数
+      function checkColor(element, index, array) {
+        return 0 <= element && element <= 255;
+      }
+      // 3つの要素が指定されているかチェック
+      function checkCount(element, index, array) {
+        return element.length == 3;
+      }
+
+      // 色の配列
+      var colors = new Array();
+      colors[0] = [0, 262, 255];
+      colors[1] = [255, 255, 255];
+      colors[2] = [255, 0, 0];
+      colors[3] = [0, 255, 0];
+      colors[4] = [0, 0, 255];
+      colors[5] = [-5, 999, 255];
+
+      // 色の範囲のフィルタ
+      var testedColors = new Array();
+      for (var i in colors) {
+        testedColors[i] = colors[i].filter(checkColor);
+      }
+      // 3つの値のフィルタ
+      var newTested = testedColors.filter(checkCount);
+      for (i in newTested) {
+        document.writeln(newTested[i] + '<br />');
+      }
+      // ]]
+    </script>
+  </head>
+  <body></body>
+</lang:html>
