@@ -1,0 +1,18 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>例6-2 IE用のmousedownの処理</title>
+  </head>
+  <body></body>
+  <script type="text/javascript" defer="defer">
+    // <![CDATA[
+    function mouseDown() {
+      var locString =
+        'X = ' + window.event.screenX + ' Y = ' + window.event.screenY;
+      console.log(locString);
+    }
+    document.onmousedown = mouseDown;
+    // ]]
+  </script>
+</lang:html>
