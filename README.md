@@ -134,3 +134,26 @@ str = str.replace(regex, ',');
 var newArray = str.split(',');
 for (var i in newArray) console.log(newArray[i]);
 ```
+
+### exam5-1
+
+- 関数宣言
+- 無名関数
+- 関数リテラル
+
+### exam5-2
+
+参照渡し
+
+### exam5-3
+
+```javascript
+var a = new Object();
+function c(a, b){
+var b = function(a) {
+}
+
+}
+
+}
+```

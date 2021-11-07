@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>例5-7 関数オブジェクト</title>
+    <script type="text/javascript" defer="defer">
+      // <![CDATA[
+      function funcObject(x, y, z) {
+        for (var i = 0; i < funcObject.length; i++) {
+          document.writeln(
+            '引数' + i + ': ' + funcObject.arguments[i] + '<br />'
+          );
+        }
+      }
+      funcObject(1, 2, 3);
+
+      // ]]
+    </script>
+  </head>
+  <body></body>
+</lang:html>
