@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>例6-4 イベントバブリング</title>
+    <script type="text/javascript" defer="defer">
+      // <![CDATA[
+      function mouseDown(nsEvent) {
+        var theEvent = nsEvent ? nsEvent : window.event;
+        var locString = 'X = ' + theEvent.screenX + ' Y = ' + theEvent.screenY;
+        var theSrc = theEvent.target ? theEvent.target : theEvent.srcElement;
+        console.log(locString + ' ' + theSrc);
+      }
+
+      document.onmousedown = function (evnt) {
+        var theEvnt = evnt ? evnt : window.event;
+        console.log('event.type=' + theEvnt.type);
+      };
+      window.onload = setupEvents;
+
+      function setupEvents() {
+        document.getElementById('first').onmousedown = mouseDown;
+        document.getElementById('second').onmousedown = function () {
+          console.log('内側のdiv要素のイベントハンドラ');
+        };
+      }
+      // ]]
+    </script>
+  </head>
+  <body>
+    body内
+    <div id="first" style="padding: 20px; background-color: #ff0; width: 150px">
+      外側のdiv要素
+      <div
+        id="second"
+        style="background-color: #f00; width: 100px; height: 100px"
+      >
+        内側のdiv要素
+      </div>
+    </div>
+  </body>
+</lang:html>
