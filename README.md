@@ -137,23 +137,57 @@ for (var i in newArray) console.log(newArray[i]);
 
 ### exam5-1
 
-- 関数宣言
+- 宣言的関数
 - 無名関数
-- 関数リテラル
+- リテラル関数
 
 ### exam5-2
 
-参照渡し
+参照渡しなど。もしくは返り値を使う、グローバル変数を使う、など
 
 ### exam5-3
 
 ```javascript
-var a = new Object();
-function c(a, b){
-var b = function(a) {
+function functionC(objectA, functionB) {
+  functionB(objectA);
 }
+var func = new Function('x', 'alert(x)');
+functionC('こんにちわ', func);
+```
 
+### exam6-1
+
+- addEventListener や attachEvent 関数を使う
+- インラインモデル onload 属性など、タグの属性として設定
+- JavaScript のコードブロックに window.onload などのハンドラを記述
+
+### exam6-2
+
+window.event.screenX と screenY
+
+### exam6-3
+
+cancelBubble を設定する
+
+### exam6-4
+
+```javascript
+if (window.addEventListener) {
+  window.addEventListener('load', functionCall, false);
+} else if (window.attachEvent) {
+  window.attachEvent('onload', functionCall);
 }
+```
 
+### exam6-5
+
+```javascript
+if (document.addEventListener) {
+  document.addEventListener('keydown', getKey, true);
+} else if (document.attachEvent) {
+  document.attachEvent('onkeydown', getKey);
+}
+function getKey(evnt) {
+  alert(evnt.which);
 }
 ```
