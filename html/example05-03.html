@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>例5-3 関数を引数として渡す</title>
+    <script type="text/javascript" defer="defer">
+      // <![CDATA[
+      // 3番目の引数を関数として起動する
+      function funcObject(x, y, z) {
+        console.log(z(x, y));
+      }
+      // 3番目の引数は関数
+      funcObject(1, 2, function (x, y) {
+        return x * y;
+      });
+      // ]]
+    </script>
+  </head>
+  <body></body>
+</lang:html>
