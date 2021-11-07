@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>例5-5 再帰関数</title>
+    <script type="text/javascript" defer="defer">
+      // <![CDATA[
+      var addNumbers = function sumNumbers(
+        numArray,
+        indexVal,
+        resultSum,
+        resultString
+      ) {
+        if (indexVal == numArray.length) {
+          document.writeln('合計は' + resultSum + 'です。<br />');
+          document.writeln(
+            'すべての要素を列挙します:' + resultString + '<br />'
+          );
+          return;
+        }
+        // 終わりにならない場合
+        // 加算を行う
+        resultSum += numArray[indexVal];
+        // 文字列の連結を行う
+        if (resultString != '') {
+          resultString += ', ' + numArray[indexVal];
+        } else {
+          resultString = numArray[indexVal];
+        }
+        indexVal++;
+        // 1増えたインデックスで自分自身を呼び出す
+        return sumNumbers(numArray, indexVal, resultSum, resultString);
+      };
+
+      var numArray = [1, 35.4, -14, 44, 0.5]; // 数値を記憶した配列を作成
+      addNumbers(numArray, 0, 0, '');
+
+      // whileループを使った同様の例
+      var resultSum = 0;
+      var resultString = '';
+      for (var i = 0; i < numArray.length; i++) {
+        resultSum += numArray[i];
+        // 文字列の連結を行う
+        if (resultString != '') {
+          resultString += ', ' + numArray[i];
+        } else {
+          resultString = numArray[i];
+        }
+      }
+      // 結果を出力
+      document.writeln('合計は' + resultSum + 'です。<br />');
+      document.writeln('すべての要素を列挙します:' + resultString);
+      // ]]
+    </script>
+  </head>
+  <body></body>
+</lang:html>
