@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>例5-6 クロージャ</title>
+    <script type="text/javascript" defer="defer">
+      // <![CDATA[
+      // 外側の関数
+      function generateGreeting(aisatsu) {
+        var kutouten = '! ';
+        function returnGreeting(aite) {
+          return aisatsu + '、' + aite + kutouten;
+        }
+        return returnGreeting;
+      }
+
+      // returnGreetingにアクセスできるよう、generateGreetingを呼び出して
+      // 戻り値として関数 returnGreetingを受け取る
+      var morning = generateGreeting('おはようございます'); // 朝の挨拶を作る関数を作る
+      var s = morning(' 山本さん');
+      document.writeln(s + '<br />');
+
+      var s = morning(' 木下くん');
+      document.writeln(s + '<br />');
+
+      // 昼の挨拶をする関数を作る
+      var daytime = generateGreeting('こんにちわ');
+      s = daytime(' 愛ちゃん');
+      document.writeln(s + '<br />');
+
+      // よるの挨拶をする関数をつくる
+      var night = generateGreeting('こんばんわ');
+      s = night('光一くん');
+      document.writeln(s + '<br />');
+
+      s = night('愛ちゃん');
+      document.writeln(s + '<br />');
+
+      // ]]
+    </script>
+  </head>
+  <body></body>
+</lang:html>
