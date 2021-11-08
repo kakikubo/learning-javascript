@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>例7-3 テキスト関連フィールド</title>
+    <script type="text/javascript" defer="defer">
+      // <![CDATA[
+      if (window.addEventListener) {
+        window.addEventListener('load', setupEvents, false);
+      } else if (window.attachEvent) {
+        window.attachEvent('onload', setupEvents);
+      } else {
+        window.onload = setupEvents;
+      }
+
+      function setupEvents(evnt) {
+        if (document.someForm.addEventListener) {
+          document.someForm.addEventListener('submit', validateForm, false);
+        } else if (document.someForm.attachEvent) {
+          document.someForm.attachEvent('onsubmit', validateForm);
+        } else {
+          document.someForm.onsubmit = validateForm;
+        }
+      }
+
+      function validateForm(evnt) {
+        var strResults = '';
+        for (var i = 0; i < document.someForm.elements.length - 1; i++) {
+          strResults += document.someForm.elements[i].value;
+        }
+        document.someForm.elements[3].value = strResults;
+
+        if (evnt.preventDefault) {
+          evnt.preventDefault(); // Firefox など
+        } else if (evnt.cancelBubble != null) {
+          evnt.cancelBubble = true; // IE
+        }
+        return false;
+      }
+      // ]]
+    </script>
+  </head>
+  <body>
+    <form name="someForm">
+      <input type="text" name="text1" /><br />
+      <input type="password" name="text2" /><br />
+      <input type="hidden" name="text3" value="hidden value" />
+      <textarea name="text4" cols="50" rows="10">テキスト領域</textarea><br />
+      <input type="submit" value="送信" />
+    </form>
+  </body>
+</lang:html>
