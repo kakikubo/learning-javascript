@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>例7-4 テキスト関連フィールドに対するJiT検証</title>
+    <script type="text/javascript" defer="defer">
+      // <![CDATA[
+      if (window.addEventListener) {
+        window.addEventListener('load', setupEvents, false);
+      } else if (window.attachEvent) {
+        window.attachEvent('onload', setupEvents);
+      } else {
+        window.onload = setupEvents;
+      }
+
+      function setupEvents(evnt) {
+        document.someForm.text1.onblur = checkRequired;
+        document.someForm.text2.onchange = validateField;
+      }
+
+      function checkRequired(evnt) {
+        var theEvent = evnt ? evnt : window.event;
+        var target = evnt.target ? evnt.target : evnt.srcElement;
+
+        var txtInput = target.value;
+        if (txtInput == null || txtInput == '') {
+          alert('この欄はかならず入力してください');
+        }
+      }
+
+      function validateField(evnt) {
+        var theEvent = evnt ? evnt : window.event;
+        var target = evnt.target ? evnt.target : evnt.srcElement;
+        var rgEx = /^\d{3}[-]\d{4}$/;
+
+        var OK = rgEx.exec(target.value);
+        if (!OK) {
+          alert('郵便番号の形式ではありません');
+        }
+      }
+      // ]]
+    </script>
+  </head>
+  <body>
+    <form name="someForm">
+      ニックネーム <input type="text" name="text1" /><br /> 郵便番号
+      <input type="password" name="text2" /><br />
+      <input type="hidden" name="text3" value="秘密の値" />
+      <textarea name="text4" cols="50" rows="10">メッセージ</textarea><br />
+      <input type="submit" value="送信" />
+    </form>
+  </body>
+</lang:html>
