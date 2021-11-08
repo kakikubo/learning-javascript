@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>例7-5 JiT正規表現マシン</title>
+    <script type="text/javascript" defer="defer">
+      // <![CDATA[
+      if (window.addEventListener) {
+        window.addEventListener('load', setupEvents, false);
+      } else if (window.attachEvent) {
+        window.attachEvent('onload', setupEvents);
+      } else {
+        window.onload = setupEvents;
+      }
+
+      function setupEvents(evnt) {
+        document.someForm.onsubmit = validateField;
+      }
+
+      function validateField(evnt) {
+        var rgEx = new RegExp(document.someForm.text1.value);
+        var OK = rgEx.exec(document.someForm.text2.value);
+
+        // 結果表示
+        if (!OK) {
+          document.someForm.text3.value = 'マッチしません';
+        } else {
+          document.someForm.text3.value = 'マッチする文字列がみつかりました';
+        }
+
+        return false;
+      }
+
+      // ]]
+    </script>
+  </head>
+  <body>
+    <form name="someForm" style="padding: 10px">
+      正規表現 <input type="text" name="text1" /><br /><br />
+      <textarea name="text2" cols="100" rows="10"></textarea><br /> 結果
+      <input type="text" name="text3" /><br /><br />
+      <input type="submit" value="正規表現をチェック" />
+    </form>
+  </body>
+</lang:html>
