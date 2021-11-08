@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>例7-2 入力フォーム(入れ子)</title>
+    <script type="text/javascript" defer="defer">
+      // <![CDATA[
+      if (window.addEventListener) {
+        window.addEventListener('load', setupEvents, false);
+      } else if (window.attachEvent) {
+        window.attachEvent('onload', setupEvents);
+      } else {
+        window.onload = setupEvents;
+      }
+
+      function setupEvents(evnt) {
+        document.someForm.selectOpts.onchange = checkSelect;
+      }
+
+      function checkSelect(evnt) {
+        var opts = document.someForm.selectOpts.options;
+        for (var i = 0; i < opts.length; i++) {
+          if (opts[i].selected) {
+            switch (opts[i].value) {
+              case 'opt1':
+                opts[i + 1].selected = true;
+                break;
+              case 'opt3':
+                opts[i + 1].selected = true;
+                break;
+              case 'opt4':
+                opts[i + 1].selected = true;
+                break;
+            }
+            alert(opts[i].text + ' ' + opts[i].value);
+          }
+        }
+        // サーバ側処理なし、submitのキャンセル
+        return false;
+      }
+      // ]]
+    </script>
+  </head>
+  <body>
+    <form name="someForm">
+      <select name="selectOpts" multiple>
+        <option value="opt1">選択肢1</option>
+        <option value="opt1a">- 選択肢1A</option>
+        <option value="opt2">選択肢2</option>
+        <option value="opt3">選択肢3</option>
+        <option value="opt3a">- 選択肢3A</option>
+        <option value="opt4">選択肢4</option>
+        <option value="opt4a">- 選択肢4A</option>
+        <option value="opt5">選択肢5</option>
+      </select>
+      <br />
+      <input type="submit" value="送信" />
+    </form>
+  </body>
+</lang:html>
