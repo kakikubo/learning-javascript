@@ -191,3 +191,49 @@ function getKey(evnt) {
   alert(evnt.which);
 }
 ```
+
+### exam7-1
+
+DOM level0 イベントハンドラから false を返す
+DOM level2 canselBubble を true(IE) preventDefault を呼び出す(FireFox など)
+
+### exam7-2
+
+blur イベント
+
+### exam7-3
+
+document.someForm.selectOpts.options.length を指定して value を追加
+`options[document.someForm.selectOpts.options.length] = value`みたいに
+
+```javascript
+opts[opts.length] = new Option('選択肢4', 'opt4');
+```
+
+### exam7-4
+
+```javascript
+var regEx = /^[0-9]*$/g;
+var OK = regEx.exec(document.someForm.address.value);
+```
+
+### exam7-5
+
+各ラジオボタンにイベントハンドラ関数を割り当てておく
+
+```javascript
+document.someForm.radiodgroup[0].onclick = handleClick;
+document.someForm.radiodgroup[1].onclick = handleClick;
+```
+
+あるラジオボタンがチェックされているかを確認し、チェックされていたらテキストフィールドを無効にする
+
+```javascript
+function handleClick() {
+  if (document.someForm.radiogroup[1].checked) {
+    document.someForm.submit.disabled = true;
+  } else {
+    document.someForm.submit.disabled = false;
+  }
+}
+```
