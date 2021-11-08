@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>例7-1 入力フォーム</title>
+    <script type="text/javascript" defer="defer">
+      // <![CDATA[
+      if (window.addEventListener) {
+        window.addEventListener('load', setupEvents, false);
+      } else if (window.attachEvent) {
+        window.attachEvent('onload', setupEvents);
+      } else {
+        window.onload = setupEvents;
+      }
+
+      function setupEvents(evnt) {
+        document.someForm.onsubmit = checkForm;
+      }
+
+      function checkForm(evnt) {
+        var opts = document.someForm.selectOpts.options;
+        for (var i = 0; i < opts.length; i++) {
+          if (opts[i].selected) {
+            alert(opts[i].text + ' ' + opts[i].value);
+          }
+        }
+        // サーバ側処理なし、submitのキャンセル
+        return false;
+      }
+      // ]]
+    </script>
+  </head>
+  <body>
+    <form name="someForm">
+      <select name="selectOpts" multiple>
+        <option value="opt1">選択肢1</option>
+        <option value="opt2">選択肢2</option>
+        <option value="opt3">選択肢3</option>
+      </select>
+      <br />
+      <input type="submit" value="送信" />
+    </form>
+  </body>
+</lang:html>
