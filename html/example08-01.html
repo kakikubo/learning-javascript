@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>例8-1 クッキーの管理</title>
+    <script type="text/javascript" defer="defer">
+      // <![CDATA[
+      if (navigator.cookieEnabled) {
+        var tst = new Array();
+        tst[0] = 'hello';
+        tst[1] = 'there';
+        setCookie('doc', document);
+        alert(document.cookie);
+        var sum = readCookie('sum');
+        var iSum = 0;
+        if (sum) {
+          iSum = parseInt(sum) + 1;
+          alert(iSum);
+          if (iSum >= 5) {
+            eraseCookie('sum');
+          } else {
+            setcookie('sum', iSum);
+          }
+        } else {
+          setCookie('sum', 0);
+          alert(iSum);
+        }
+      }
+      // クッキーの有効期限を2022年に設定
+      function setCookie(key, value) {
+        var cookieDate = new Date(2022, 11, 10, 19, 30, 30);
+        document.cookie =
+          key +
+          '=' +
+          escape(value) +
+          '; expires=' +
+          cookieDate.toGMTString() +
+          '; path=/';
+      }
+
+      // クッキーの読み込み
+      function readCookie(key) {
+        var cookie = document.cookie;
+        var first = cookie.indexOf(key + '=');
+
+        if (first >= 0) {
+          // クッキーが存在する場合
+          var str = cookie.substring(first, cookie.length);
+          var last = str.indexOf(';');
+
+          // if last cookie
+          if (last < 0) last = str.length; // クッキーが終わりかどうか
+          str = str.substring(0, last).split('='); // クッキーの値を取得
+          return unescape(str[1]);
+        } else {
+          return null;
+        }
+      }
+
+      // 過去のためクッキーに過去の日付を設定
+      function eraseCookie(key) {
+        var cookieDate = new Date(2000, 11, 10, 19, 30, 30);
+        document.cookie =
+          key + '= ; expires= ' + cookieDate.toGMTString() + '; path=/';
+      }
+
+      // ]]
+    </script>
+  </head>
+  <body></body>
+</lang:html>
