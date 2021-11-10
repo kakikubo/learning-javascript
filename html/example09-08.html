@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>例9-8 フレーム表示を解消するページ</title>
+    <script type="text/javascript" defer="defer">
+      // <![CDATA[
+      if (self != top) {
+        if (window.location.href.replace) {
+          top.location.replace(self.location.href);
+        } else {
+          top.location.href = self.document.href;
+        }
+      }
+      // ]]
+    </script>
+  </head>
+  <body>
+    <h1>これはフレームを嫌うページなのです</h1>
+  </body>
+</lang:html>
