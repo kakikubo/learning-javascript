@@ -237,3 +237,28 @@ function handleClick() {
   }
 }
 ```
+
+### exam8-1
+
+クッキー
+
+### exam8-2
+
+- クッキー名
+- key と value
+- 期限
+- パス
+
+### exam8-3
+
+期限設定をしない
+
+### exam8-4
+
+html タグや javascript コードそのものを escape する
+
+### exam8-5
+
+- ショッピングカート
+- 検索履歴
+-
