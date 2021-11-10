@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>例9-4 タイマーを使ってページの画像を変更する</title>
+  </head>
+  <script type="text/javascript" defer="defer">
+    // <![CDATA[
+    var ct = 0;
+    var imgs = new Array(
+      'image2.png',
+      'image3.png',
+      'image4.png',
+      'image5.png'
+    );
+    setTimeout('progress()', 3000);
+
+    function progress() {
+      if (ct < imgs.length) {
+        document.images[0].src = imgs[ct];
+        ct++;
+        setTimeout('progress()', 3000);
+      }
+    }
+    // ]]
+  </script>
+  <body>
+    <p>
+      <img src="image1.png" />
+    </p>
+  </body>
+</lang:html>
