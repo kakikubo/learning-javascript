@@ -10,8 +10,14 @@
       var optionString = prompt('オプションを入力してください', '');
       optionString = optionString ? optionString : '';
       // document.writeln('オプション:' + optionString); // これは　Avoid using document.write().といわれてしまうのでコメントアウト
-      window.open('https://www.oreilly.co.jp', 'test', optionString); // ポップアップもデフォルトではブロックされてしまう。
+      var newWindow = window.open(
+        'https://www.oreilly.co.jp',
+        'test',
+        optionString
+      ); // ポップアップもデフォルトではブロックされてしまう。
+      newWindow.moveTo(0, 0); // 新しく開いたウィンドウの位置を移動
 
+      opener.moveTo(0, 0); // 画面をひらいた元のウィンドウの移動
       // ]]
     </script>
   </head>
