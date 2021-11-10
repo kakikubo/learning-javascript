@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>
+      例9-1 ダイアログを使ってウィンドウのオープン時のオプションを指定
+    </title>
+    <script type="text/javascript" defer="defer">
+      // <![CDATA[
+      var optionString = prompt('オプションを入力してください', '');
+      optionString = optionString ? optionString : '';
+      // document.writeln('オプション:' + optionString); // これは　Avoid using document.write().といわれてしまうのでコメントアウト
+      window.open('https://www.oreilly.co.jp', 'test', optionString); // ポップアップもデフォルトではブロックされてしまう。
+
+      // ]]
+    </script>
+  </head>
+  <body></body>
+</lang:html>
