@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>例9-9 iframe</title>
+  </head>
+  <body>
+    <script type="text/javascript" defer="defer">
+      // <![CDATA[
+      function handleResponse(choice) {
+        var pick = frames['MyFrame'];
+        pick.document.writeln(choice);
+      }
+      // ]]
+    </script>
+    <iframe
+      id="MyFrame"
+      name="MyFrame"
+      src="blank.html"
+      style="width: 100px; height: 100px; border: 0px"
+    ></iframe>
+
+    <p>
+      <a
+        href=""
+        onclick="parent.MyFrame.location.replace('choice1.html'); return false"
+        >赤を選択</a
+      >
+      <a
+        href=""
+        onclick="parent.MyFrame.location.replace('choice2.html'); return false"
+        >青を選択</a
+      >
+      <a
+        href=""
+        onclick="parent.MyFrame.location.replace('choice3.html'); return false"
+        >を選択</a
+      >
+    </p>
+  </body>
+</lang:html>
