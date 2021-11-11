@@ -262,3 +262,28 @@ html タグや javascript コードそのものを escape する
 - ショッピングカート
 - 検索履歴
 -
+
+### exam9-1
+
+prompt じゃない方法で聞いてみる(不正解。prompt 使えってさ)
+
+### exam9-2
+
+```javascript
+setInterval('callFunction', 3000, paramA, paramB);
+```
+
+### exam9-3
+
+~~innerHTML~~
+location
+
+### exam9-4
+
+window.navigator
+
+### exam9-5
+
+```javascript
+window.open('help.html', 'test', 'width=200,height=200,toolbar=no,status=no');
+```
