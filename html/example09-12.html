@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>例9-12 ページ内のリンクの抽出</title>
+  </head>
+  <body>
+    <h1>link</h1>
+    <p>
+      ドキュメント内のすべての<a
+        href="https://msdn.microsoft.com/workshop/author/dhtml/refernce/objects/link.asp"
+        >リンク</a
+      >を集めるには、document<a
+        href="https://www.w3.org/TR/html4/struct/objects.html"
+        >オブジェクト</a
+      >のプロパティである配列linksを利用すればよい。
+    </p>
+    <p>
+      配列linksの各要素は<a
+        href="https://www.devguru.com/Technologies/ecmascript/quickref/link.html"
+        >link</a
+      >オブジェクトであり、これもさまざまなプロパティを持っている。
+    </p>
+    <hr />
+    <h2>このページのリンク一覧</h2>
+    <p>
+      <script type="text/javascript" defer="defer">
+        // <![CDATA[
+        for (var i = 0; i < document.links.length; i++) {
+          var link = document.links[i];
+          document.writeln(link.text + ' : ' + link.href + '<br />');
+        }
+        // ]]
+      </script>
+    </p>
+  </body>
+</lang:html>
