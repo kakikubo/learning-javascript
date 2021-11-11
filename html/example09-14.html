@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>例9-14 ページをロード後に要素を変更</title>
+    <script type="text/javascript" defer="defer">
+      // <![CDATA[
+      function changeDiv() {
+        // 各要素を取得
+        var elem1 = document.getElementById('elem1');
+        elem1.innerHTML = '<h1>Hello, World</h1>';
+
+        var elem2 = document.getElementById('elem2');
+        elem2.innerHTML = '<ol><li>オプション1</li><li>オプション2</li></ol>';
+
+        var elem3 = document.getElementById('elem3');
+        elem3.innerHTML = "<img src='image1.png' alt='もちぴょん' />";
+      }
+      // ]]
+    </script>
+  </head>
+  <body onload="setTimeout('changeDiv()', 5000)">
+    <!-- 5秒後に内容が変わる -->
+    <div id="elem1">
+      <p>これは一つのパラグラフです</p>
+    </div>
+    <ul id="elem2">
+      <li>option 1</li>
+      <li>option 2</li>
+    </ul>
+    <div>
+      <a href="example09-12.html" id="elem3">例9-12</a>
+    </div>
+  </body>
+</lang:html>
