@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>例9-13 簡易スライドショー</title>
+    <script type="text/javascript" defer="defer">
+      // <![CDATA[
+      var currentPhoto = 0;
+      var pics = new Array();
+      for (var i = 0; i < 5; i++) {
+        pics[i] = new Image();
+        pics[i].src = 'image' + (i + 1) + '.png';
+      }
+
+      function changePhoto(photo) {
+        document.images[0].src = pics[photo].src;
+      }
+
+      function nextPic() {
+        currentPhoto++;
+        if (currentPhoto < pics.length) {
+          changePhoto(currentPhoto);
+        } else {
+          alert('おしまい');
+        }
+      }
+      function prevPic() {
+        if (currentPhoto > 0) {
+          currentPhoto--;
+          changePhoto(currentPhoto);
+        } else {
+          alert('最初の写真です');
+        }
+      }
+      // ]]
+    </script>
+  </head>
+  <body>
+    <img src="image1.png" />
+    <p>
+      <a href="" onclick="prevPic(); return false">前の写真</a>
+      <a href="" onclick="nextPic(); return false">次の写真</a>
+    </p>
+  </body>
+</lang:html>
