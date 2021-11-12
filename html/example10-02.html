@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>
+      例10-2 DOM HTMLインターフェースを利用して、画像のプロパティを表に出力
+      Build-o-Table
+    </title>
+    <script type="text/javascript" defer="defer">
+      // <![CDATA[
+      function procImage() {
+        // 表と画像を取得する
+        var tbl = document.getElementById('table1');
+        tbl.border = '5px';
+        tbl.cellPadding = '5px';
+
+        var img = document.getElementById('img1');
+        img.vspace = '10';
+        // 属性を表記するために、表の行を追加する
+        var row1 = tbl.insertRow(-1);
+        // 2つのセルを表にする
+        var cell1 = row1.insertCell(0);
+        var cell2 = row1.insertCell(1);
+        // テキストの値を作成する
+        var txtAttr1 = document.createTextNode('src');
+        var txtAttr1Val = document.createTextNode(img.src);
+        // テキストの値をセルに入れる
+        cell1.appendChild(txtAttr1);
+        cell2.appendChild(txtAttr1Val);
+      }
+      // ]]
+    </script>
+  </head>
+  <body onload="procImage();">
+    <img id="img1" src="image2.png" alt="メガネさん" />
+    <table id="table1"></table>
+  </body>
+</lang:html>
