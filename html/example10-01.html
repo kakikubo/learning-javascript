@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>例10-1 HTML要素の読み書き</title>
+    <script type="text/javascript" defer="defer">
+      // <![CDATA[
+      function procImage() {
+        var img = document.images[0];
+        // 既存の画像の属性を取り出す
+        var imgAttr =
+          img.align +
+          ' ' +
+          img.alt +
+          ' ' +
+          img.src +
+          ' ' +
+          img.width +
+          ' ' +
+          img.height;
+        alert(imgAttr);
+        // 属性を変更する
+        img.src = 'image1.png';
+        img.width = '100';
+        img.height = '100';
+        img.alt = 'Alternative';
+        img.align = 'left';
+        img.title = 'Upright';
+        document.close();
+      }
+      // ]]
+    </script>
+  </head>
+  <body onload="procImage();">
+    <img src="image2.png" alt="メガネさん" />
+  </body>
+</lang:html>
