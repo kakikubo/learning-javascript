@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>例10-5 Nodeプロパティへのアクセス</title>
+    <script type="text/javascript" defer="defer">
+      // <![CDATA[
+      // 無作為に色を作り出す
+      function randomColor() {
+        r = Math.floor(Math.random() * 255).toString(16);
+        g = Math.floor(Math.random() * 255).toString(16);
+        b = Math.floor(Math.random() * 255).toString(16);
+        return '#' + r + g + b;
+      }
+
+      // いくつかのノードプロパティを出力する
+      function outputNodeProps(nd) {
+        var strNode = 'NodenodeType: ' + nd.nodeType;
+        strNode += '\nnodeName: ' + nd.nodeName;
+        strNode += '\nnodeValue: ' + nd.nodeValue;
+
+        // styleをセットするなら(Elementオブジェクトのプロパティ)
+        if (nd.style) {
+          var color = randomColor();
+          nd.style.backgroundColor = color;
+          strNode += '\nbackgroundColor: ' + nd.nodeValue;
+        }
+
+        // ノードのプロパティを出力する
+        console.log(strNode);
+
+        // 子ノードを処理する
+        var children = nd.childNodes;
+        for (var i = 0; i < children.length; i++) {
+          outputNodeProps(children[i]);
+        }
+      }
+
+      // ]]
+    </script>
+  </head>
+  <body onload="outputNodeProps(document);">
+    <div id="div1">
+      <h1>見出し</h1>
+      <!-- 段落1 -->
+      <p>
+        ドキュメントツリーに関する理解を深めるために、headとbodyがあり、bodyの中にひとつのdiv要素、
+        そのdiv要素にはh1ヘッダと2つの段落をもつページを考えてみましょう。
+        ひとつの段落には<i>Learning JavaScript</i>
+        というイタリック体の文字列が書かれており、もう一つの段落には画像が含まれています
+      </p>
+      <!-- 段落2 -->
+      <p>
+        第2段落には画像が含まれています。<img
+          src="image1.png"
+          alt="mochipyon"
+        />
+      </p>
+    </div>
+  </body>
+</lang:html>
