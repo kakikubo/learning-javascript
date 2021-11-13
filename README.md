@@ -285,5 +285,71 @@ window.navigator
 ### exam9-5
 
 ```javascript
-window.open('help.html', 'test', 'width=200,height=200,toolbar=no,status=no');
+window.open('help.html', 'test', 'toolbar=no,status=no');
+```
+
+### exam10-1
+
+id,title,lang,dir,className
+
+### exam10-2
+
+```javascript
+var elems = document.getElementByName('elemName');
+for (var i = 0; i < elems.length; i++) {
+  alert(elems[i].tagName);
+}
+```
+
+### exam10-3
+
+```javascript
+var children = nd.childNodes;
+for (var i = 0; i < children.length; i++) {
+  alert(children[i].nodeType);
+}
+divs = document.getElementByTagName('div');
+for (var i = 0; i < divs.length; i++) {
+  alert(divs[i].id);
+}
+var elem = document.getElementById('elem1');
+var children = elem.childNodes;
+var child = elem.getElementsByTagname('h1')[0];
+var p = document.createElement('p');
+var txt = document.createTextNode('hello');
+p.appendChild(txt);
+elem.replaceChild(p, child);
+```
+
+### exam10-04
+
+どうすればページ上のすべての DIV 要素の ID がわかるか
+
+```javascript
+divs = document.getElementsByTagName('div');
+for (var i = 0; 0 < divs.length; i++) {
+  alert(divs[i].id);
+}
+```
+
+### exam10-05
+
+次のような H1 要素を innerHTML を使わずにパラグラフに置き換えるにはどのようにしたらよいか
+
+```html
+<div id="elem1">
+  <h1>みだし</h1>
+</div>
+```
+
+次のようにする
+
+```javascript
+var elem = documeng.getElementById('elem1');
+var children = elem.childNodes;
+var child = elem.getElementsByTagName('h1')[0];
+var p = document.createElement('p');
+var txt = document.createTextNode('hello');
+p.appendChild(txt);
+elem.replaceChild(p, child);
 ```
