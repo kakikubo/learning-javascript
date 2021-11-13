@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>例10-10 ドキュメントの動的な変更</title>
+    <script type="text/javascript">
+      // <![CDATA[
+      document.onclick = changeDoc;
+      function changeDoc() {
+        // まずヘッダを削除する
+        var hdr = document.getElementById('hdr1');
+        var div = document.getElementById('div1');
+        div.removeChild(hdr);
+
+        // 画像をテキストで置き換える
+        var img = document.getElementById('img1');
+        var p = document.getElementById('p2');
+        var txt = document.createTextNode(
+          'と思ったら、テキストに変わってしまいました'
+        );
+        p.replaceChild(txt, img);
+
+        //新しい要素を追加する
+        var div2 = document.createElement('div');
+        div2.innerHTML = '<h1>おしまい</h1>';
+        document.body.appendChild(div2);
+      }
+
+      // ]]
+    </script>
+  </head>
+  <body>
+    <div id="div1">
+      <h1 id="hdr1">見出し</h1>
+      <!-- 段落1 -->
+      <p id="p1">
+        ドキュメントツリーに関する理解を深めるために、headとbodyがあり、bodyの中にひとつのdiv要素、
+        そのdiv要素にはh1ヘッダと2つの段落をもつページを考えてみましょう。
+        ひとつの段落には<i>Learning JavaScript</i>
+        というイタリック体の文字列が書かれており、もう一つの段落には画像が含まれています
+      </p>
+      <!-- 段落2 -->
+      <p id="p2">
+        第2段落には画像が含まれています。<img
+          src="image1.png"
+          alt="mochipyon"
+          id="img1"
+        />
+      </p>
+    </div>
+  </body>
+</lang:html>

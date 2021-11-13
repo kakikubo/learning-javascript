@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>例10-9 スクリプトページ</title>
+    <style type="text/css">
+      div {
+        border: 1px solid #000;
+        padding: 5px;
+      }
+    </style>
+    <script type="text/javascript">
+      // <![CDATA[
+      var highlightColor = '#ffff00';
+      function changeColor() {
+        highlightColor =
+          '#' + prompt('ハイライトする為に使う色を指定してください(例:FF00FF');
+      }
+      function loadPage() {
+        var pageURL = prompt(
+          '同じドメイン内のページのURLを入力してください(例: example10-02.html)'
+        );
+        top.docin.location.href = pageURL;
+      }
+      function highlightElements() {
+        var elemTag = prompt(
+          'ハイライトするタグ要素を入力してください(例: img)'
+        );
+        var nodes = top.docin.document.getElementByTagName(elemTag);
+
+        // それぞれハイライト
+        for (var i = 0; i < nodes.length; i++) {
+          nodes[i].style.backgroundColor = highlightColor;
+        }
+      }
+      // ]]
+    </script>
+  </head>
+  <body>
+    <div onclick="changeColor()">
+      <p>ハイライトする色を変更する場合はここをクリック</p>
+    </div>
+    <div onclick="loadPage()">
+      <p>左のフレームに別のページを読み込むにはここをクリック</p>
+    </div>
+    <div onclick="highlightElements()">
+      <p>特定のタグ要素を検索してハイライトするにはここをクリック</p>
+    </div>
+  </body>
+</lang:html>
