@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>例11-5 オブジェクトのカプセル化</title>
+    <style type="text/css">
+      div {
+        position: absolute;
+        top: 30px;
+        left: 50px;
+      }
+    </style>
+    <script type="text/javascript">
+      // <![CDATA[
+      var theobjs = new Array();
+      document.onclick = changeOpacity;
+
+      function alphaOpacity(value) {
+        var opacity = value * 100;
+        this.obj.style.filter = 'alpha(opacity:' + opacity + ')';
+      }
+      function cssOpacity(value) {
+        this.obj.style.opacity = value;
+      }
+      function getOpacity() {
+        if (this.obj.style.filter) {
+          var filterString = this.obj.style.filter;
+          var derivedVal = filterString.substring(
+            filterString.indexOf(':') + 1,
+            filterString.indexOf(')')
+          );
+          return deriveVal / 100;
+        } else {
+          return this.obj.style.opacity;
+        }
+      }
+      function changeOpacity() {
+        // div1
+        var currentOpacity = parseFloat(theobjs['div1'].objGetOpacity());
+        currentOpacity -= 0.1;
+        theobjs['div1'].objSetOpacity(currentOpacity);
+        // div2
+        var currentOpacity = parseFloat(theobjs['div2'].objGetOpacity());
+        currentOpacity += 0.1;
+        theobjs['div2'].objSetOpacity(currentOpacity);
+      }
+      function DivObj(obj) {
+        this.obj = obj;
+        this.objGetOpacity = getOpacity;
+        if (obj.style.filter) {
+          this.objSetOpacity = alphaOpacity;
+        } else {
+          this.objSetOpacity = cssOpacity;
+        }
+      }
+      function setUp() {
+        theelements = document.getElementsByTagName('div');
+        for (var i = 0; i < theelements.length; i++) {
+          var obj = theelements[i];
+          if (obj.id) {
+            theobjs[obj.id] = new DivObj(obj);
+          }
+        }
+        theobjs['div1'].objSetOpacity(1);
+        theobjs['div2'].objSetOpacity(0);
+      }
+      // ]]
+    </script>
+  </head>
+  <body onload="setUp();">
+    <div id="div1" style="opacity: 1; filter: alpha(opacity=100)">
+      <img src="./image1.png" alt="mochipyon" />
+    </div>
+    <div id="div2" style="opacity: 0; filter: alpha(opacity=0)">
+      <img src="./image5.png" alt="sepia mochipyon" />
+    </div>
+  </body>
+</lang:html>
