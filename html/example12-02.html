@@ -26,7 +26,7 @@
       }
       function changeElement() {
         var obj = document.getElementById('div1');
-        alert(obj.style.backgroundColor);
+        alert(obj.style.backgroundColor); // JSなどで指定した要素以外は抽出できないことに注目
         alert(getStyle(obj, 'backgroundColor', 'background-color'));
         obj.style.backgroundColor = '#ff0000';
         alert(obj.style.backgroundColor);
