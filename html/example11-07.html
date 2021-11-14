@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>例11-7 例外処理を使った不透明度設定の検査</title>
+    <script type="text/javascript">
+      // <![CDATA[
+      var div1;
+      document.onclick = changeOpacity;
+
+      function alphaOpacity(value) {
+        if (typeof value == 'number') {
+          var opacity = value * 100;
+          this.style.filter = 'alpha(opacity:' + opacity + ')';
+        } else {
+          throw '非数値';
+        }
+      }
+      function cssOpactiy(value) {
+        if (typeof value == 'number') {
+          this.obj.style.opacity = value;
+        } else {
+          throw '非数値';
+        }
+      }
+      function getOpacity() {
+        if (this.obj.style.filter) {
+          var filterString = this.obj.style.filter;
+          var derivedVal = filterString.substring(
+            filterString.indexOf(':') + 1,
+            filterString.indexOf(')')
+          );
+          return derivedVal / 100;
+        } else {
+          return this.obj.style.opacity;
+        }
+      }
+
+      function changeOpacity() {
+        try {
+          // div1
+          var currentOpacity = div1.objGetOpacity();
+          currentOpacity += 0.1;
+          div1.objSetOpacity(currentOpacity);
+        } catch (e) {
+          alert(e);
+        }
+      }
+
+      function DivObj(obj) {
+        this.obj = obj;
+        this.objGetOpacity = getOpacity;
+        this.objSetOpacity = obj.style.filter ? alphaOpacity : cssOpactiy;
+      }
+      function setup() {
+        div = document.getElementById('div1');
+        div1 = new DivObj(div);
+
+        div1.objSetOpacity(0.0);
+      }
+      // ]]
+    </script>
+  </head>
+  <body onload="setup();">
+    <div id="div1" style="opacity: 0; filter: alpha(opacity=0)">
+      <img src="./image1.png" alt="mochipyon" />
+    </div>
+  </body>
+</lang:html>
