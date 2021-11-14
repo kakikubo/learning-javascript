@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>例12-2 CSSスタイル情報の取得と設定</title>
+    <style type="text/css">
+      #div1 {
+        background-color: #ffff00;
+      }
+    </style>
+    <script type="text/javascript">
+      // <![CDATA[
+      document.onclick = changeElement;
+
+      function getStyle(obj, jsprop, cssprop) {
+        if (obj.currentStyle) {
+          return obj.currentStyle[jsprop];
+        } else if (window.getComputedStyle) {
+          // Chromeはここを通る
+          return document.defaultView
+            .getComputedStyle(obj, null)
+            .getPropertyValue(cssprop);
+        } else {
+          return null;
+        }
+      }
+      function changeElement() {
+        var obj = document.getElementById('div1');
+        alert(obj.style.backgroundColor);
+        alert(getStyle(obj, 'backgroundColor', 'background-color'));
+        obj.style.backgroundColor = '#ff0000';
+        alert(obj.style.backgroundColor);
+        alert(getStyle(obj, 'backgroundColor', 'background-color'));
+      }
+      // ]]
+    </script>
+  </head>
+  <body>
+    <div id="div1">
+      これはDIV要素です。クリックするとJavaScriptでstyleを更新します。
+    </div>
+  </body>
+</lang:html>
