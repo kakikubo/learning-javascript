@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>例12-1 スタイルプロパティの変更</title>
+    <script type="text/javascript">
+      // <![CDATA[
+      document.onclick = changeElement;
+      function changeElement() {
+        var div = document.getElementById('div');
+        div.style.backgroundColor = '#00f';
+        div.style.color = '#fff';
+        div.style.width = '500px';
+        div.style.height = '200px';
+        div.style.paddingLeft = '50px';
+        div.style.paddingTop = '50px';
+        div.style.fontFamily = 'Verdana';
+        div.style.fontSize = '2em';
+        div.style.border = '3px dashed #ff0';
+        div.style.position = 'absolute';
+        div.style.left = '200px';
+        div.style.top = '100px';
+        div.style.textDecoration = 'underline';
+      }
+      // ]]
+    </script>
+  </head>
+  <body>
+    <div id="div">
+      これはDIV要素です。クリックするとJavaScriptでstyleを更新します。
+    </div>
+  </body>
+</lang:html>
