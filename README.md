@@ -353,3 +353,54 @@ var txt = document.createTextNode('hello');
 p.appendChild(txt);
 elem.replaceChild(p, child);
 ```
+
+### exam11-1
+
+```javascript
+Number.prototype.triple = function () {
+  var nm = this.valueOf() * 3;
+  return nm * 3;
+};
+var num = new Number(3.0);
+console.log(num.triple());
+```
+
+### exam11-2
+
+var を使ってメンバ宣言をします。隠蔽することにより、外部からのアクセスを制御でき、予測していない操作などをされないようにします。
+
+### exam11-3
+
+```javascript
+if (typeof value != 'number') {
+  throw 'NotANumber';
+}
+```
+
+### exam11-4
+
+ここはまじでよくわからんかった
+
+### exam11-5
+
+```javascript
+function Control() {
+  var state = 'on';
+  var background = '#fff';
+  this.changeState = function () {
+    if (state == 'on') {
+      state = 'off';
+      background = '#000';
+    } else {
+      state = 'on';
+      background = '#fff';
+    }
+  };
+  this.getState = function () {
+    return state;
+  };
+  this.getColor = function () {
+    return background;
+  };
+}
+```
