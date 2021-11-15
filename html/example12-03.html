@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>例12-3 テキストブロックを変更</title>
+    <script type="text/javascript">
+      // <![CDATA[
+      function makeMore() {
+        var div = document.getElementById('div1');
+        div.style.fontSize = 'larger';
+        div.style.letterSpacing = '10px';
+        div.style.textAlign = 'justify';
+        div.style.textTransform = 'uppercase';
+        div.style.fontSize = 'xx-large';
+        div.style.fontWeight = '900';
+        div.style.lineHeight = '40px';
+      }
+      function makeLess() {
+        var div = document.getElementById('div1');
+        div.style.fontSize = 'smaller';
+        div.style.letterSpacing = 'normal';
+        div.style.textAlign = 'left';
+        div.style.textTransform = 'none';
+        div.style.fontSize = 'medium';
+        div.style.fontWeight = 'normal';
+        div.style.lineHeight = 'normal';
+      }
+      // ]]
+    </script>
+  </head>
+  <body>
+    <p>
+      <a href="" onclick="makeMore(); return false;">テキストを拡大</a>
+      <a href="" onclick="makeLess(); return false;">テキストを縮小</a>
+    </p>
+    <div id="div1">
+      <p>
+        視覚的表現を左右するHTML要素の一つにフォントがあります。
+        フォントやテキスト関連の属性の変更はインパクトが非常に大きく、
+        他の属性の変更でこれほどのインパクトを与えるものは多くはありません。
+      </p>
+      <p>
+        fontは文字そのものに関連するもので、フォントの種類、フォントサイズ、フォントタイプといった文字の外観を制御します。
+        一方、textはもっと装飾的で、文字列に対して適用され、文字列の下線、上線、打ち消し線、および水平方向での揃え方などを制御します。
+      </p>
+    </div>
+  </body>
+</lang:html>
