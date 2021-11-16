@@ -404,3 +404,23 @@ function Control() {
   };
 }
 ```
+
+### exam12-1
+
+css で設定している style にはアクセスできない。はじめから javascript で設定する。
+
+### exam12-2
+
+```style
+obj.style.font = "14pt/16pt";
+obj.style.color = "#f00";
+```
+
+### exam12-3
+
+div ブロック内にさらに別のブロックがあり、その中でスタイルが設定されていれば、変更できない可能性があります。
+
+### exam12-4
+
+width と height を 0 にする。
+または visibility を hidden にする

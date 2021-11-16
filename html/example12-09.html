@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>例12-9 折りたたみ式フォーム</title>
+    <style type="text/css">
+      .label {
+        background-color: #003;
+        width: 400px;
+        border-right: 1px solid #fff;
+        padding: 10px;
+        margin: 0 20px;
+        color: #fff;
+        text-align: center;
+        border-bottom: 1px solid #fff;
+      }
+      .label a {
+        color: #fff;
+      }
+      .elements {
+        background-color: #ccd9ff;
+        margin: 0 20px;
+        padding: 10px;
+        width: 400px;
+        display: none;
+      }
+    </style>
+    <script type="text/javascript">
+      // <![CDATA[
+      window.onload = setup;
+
+      function setup() {
+        document.getElementById('one').style.display = 'none';
+        document.getElementById('two').style.display = 'none';
+      }
+      function show(newItem) {
+        var item = document.getElementById(newItem);
+        if (item.style.display == 'none') {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      }
+      // ]]
+    </script>
+  </head>
+  <body>
+    <form action="GET">
+      <div class="label" onclick="show('one')">
+        <a href="#name" onclick="return false">お名前</a>
+      </div>
+      <div class="elements" id="one">
+        <label>姓</label><br /><input type="text" name="lastname" /><br /><br />
+        <label>名</label><br /><input
+          type="text"
+          name="firstname"
+        /><br /><br />
+      </div>
+      <div class="label" onclick="show('two')">
+        <a href="#address" onclick="return false">住所</a>
+      </div>
+      <div class="elements" id="two">
+        <label>郵便番号</label><br /><input
+          type="text"
+          name="zip"
+          size="12"
+        /><br /><br /> <label>都道府県</label><br /><input
+          type="text"
+          name="state"
+          size="10"
+        /><br /><br /> <label>市町村等</label><br /><input
+          type="text"
+          name="street"
+          size="50"
+        /><br /><br />
+      </div>
+    </form>
+    <p>
+      折りたたみ式のフォームです。<br />「お名前」あるいは「住所」をクリックすると、その下に記入用のフォームが現れます。
+    </p>
+  </body>
+</lang:html>
