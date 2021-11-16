@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>例12-8 隠れたヘルプフィールド</title>
+    <style type="text/css">
+      .help {
+        position: absolute;
+        left: 300px;
+        top: 20px;
+        visibility: hidden;
+        width: 100px;
+        padding: 10px;
+        border: 1px solid #f00;
+      }
+      form {
+        margin: 20px;
+        background-color: #dfe1cb;
+        padding: 20px;
+        width: 200px;
+      }
+      form a {
+        color: #060;
+        text-decoration: none;
+      }
+      form a:hover {
+        cursor: help;
+      }
+    </style>
+    <script type="text/javascript">
+      // <![CDATA[
+      var item = null;
+      function showHelp(newItem) {
+        if (item) {
+          item.style.visibility = 'hidden';
+        }
+        item = document.getElementById(newItem);
+        item.style.visibility = 'visible';
+      }
+      // ]]
+    </script>
+  </head>
+  <body>
+    <form>
+      <label><a href="javascript:showHelp('item1')" alt="get help">要素1</a></label>
+      <input type="text"><br /><br />
+      <label><a href="javascript:showHelp('item2')" alt="get help">要素2</a></label>
+      <input type="text"><br /><br />
+    </form>
+    <div id='item1' class='help'>
+      要素1のヘルプです。「要素1」というラベルをクリックしたときだけ表示されます。
+    </div>
+    <div id='item2' class='help'>
+      要素2のヘルプです。「要素2」というラベルをクリックしたときだけ表示されます。
+    </div>
+  </body>
+</lang:html>
