@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>例12-7 ドロップダウンアニメーション</title>
+    <style type="text/css">
+      #data1 {
+        position: absolute;
+        top: 100px;
+        left: 100px;
+        padding: 0;
+        width: 200px;
+        height: 200px;
+        background-color: #ff0;
+        clip: rect(0px, 200px, 200px, 0px); /* rect(上, 右, 下, 左) */
+      }
+      #data1 h3 {
+        margin: 0;
+        padding: 5px;
+        font-size: smaller;
+        background-color: #006;
+        color: #fff;
+      }
+      #contained {
+        margin: 10px;
+      }
+    </style>
+    <script type="text/javascript">
+      // <![CDATA[
+      var bottom = 200;
+      var hidden = false;
+      var obj = null;
+      function clipItem() {
+        obj = document.getElementById('data1');
+        if (hidden) {
+          showItem();
+        } else {
+          hideItem();
+        }
+      }
+      function hideItem() {
+        bottom -= 10;
+        var clip = 'rect(0px, 200px, ' + bottom + 'px,0px)';
+        obj.style.clip = clip;
+        if (bottom <= 30) {
+          hidden = true;
+        } else {
+          setTimeout('hideItem()', 10);
+        }
+      }
+      function showItem() {
+        bottom += 10;
+        var clip = 'rect(0px, 200px, ' + bottom + 'px,0px)';
+        obj.style.clip = clip;
+        if (bottom == 200) {
+          hidden = false;
+        } else {
+          setTimeout('showItem()', 10);
+        }
+      }
+      // ]]
+    </script>
+  </head>
+  <body>
+    <div id="data1">
+      <h3 onclick="clipItem();" style="text-align: center">ここをクリック</h3>
+      <div id="contained">
+        人類にとって、地球温暖化との戦いに総力を傾けるべき時が来た。残された時間は少ない。
+      </div>
+    </div>
+  </body>
+</lang:html>
