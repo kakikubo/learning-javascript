@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>例12-6 はみ出しの処理</title>
+    <style type="text/css">
+      #div1 {
+        width: 700px;
+        height: 200px;
+      }
+      #div2 {
+        width: 600px;
+        height: 100px;
+        overflow: auto;
+      }
+    </style>
+    <script type="text/javascript">
+      // <![CDATA[
+      function switchContent() {
+        var div1 = document.getElementById('div1').innerHTML;
+        var div2 = document.getElementById('div2').innerHTML;
+        document.getElementById('div1').innerHTML = div2;
+        document.getElementById('div2').innerHTML = div1;
+      }
+      // ]]
+    </script>
+  </head>
+  <body>
+    <p>
+      <a href="javascript:switchContent();">スイッチ</a>
+    </p>
+    <div id="div1">
+      <p>
+        視覚的表現を左右するHTML要素の一つにフォントがあります。
+        フォントやテキスト関連の属性の変更はインパクトが非常に大きく、
+        他の属性の変更でこれほどのインパクトを与えるものは多くはありません。
+      </p>
+      <p>
+        fontは文字そのものに関連するもので、フォントの種類、フォントサイズ、フォントタイプといった文字の外観を制御します。
+        一方、textはもっと装飾的で、文字列に対して適用され、文字列の下線、上線、打ち消し線、および水平方向での揃え方などを制御します。
+      </p>
+    </div>
+    <div id="div2">
+      <p>小さなアイテムです。</p>
+    </div>
+  </body>
+</lang:html>
