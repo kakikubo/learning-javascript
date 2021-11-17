@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>例13-6 Hello Ajax World JSON版</title>
+    <style type="text/css">
+      div.elem {
+        margin: 20px;
+      }
+    </style>
+    <script type="text/javascript">
+      // <![CDATA[
+      var xmlhttp = false;
+      if (window.XMLHttpRequest) {
+        xmlhttp = new XMLHttpRequest();
+        xmlhttp.overrideMimeType('text/xml');
+      } else if (window.activeXObject) {
+        xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');
+      }
+      function populateList() {
+        var pref = document.forms[0].elements[0].value;
+        var url = 'example13-05.php?pref=' + pref;
+        xmlhttp.open('GET', url, true);
+        xmlhttp.onreadystatechange = getCities;
+        xmlhttp.send(null);
+      }
+      function getCities() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+          try {
+            eval('var response = (' + xmlhttp.responseText + ')');
+            var sel = document.getElementById('cities');
+            var name = (value = null);
+            for (var i = 0; i < response.length; i++) {
+              name = response[i].title;
+              value = response[i].value;
+              sel.options[i] = new Option(name, value);
+            }
+          } catch (e) {
+            alert(e.message);
+          }
+        } else {
+          document.getElementById('cities').innerHTML = 'エラー: 失敗しました';
+        }
+      }
+      // ]]
+    </script>
+  </head>
+  <body>
+    <h3>都道府県</h3>
+    <a href="http://localhost:18080/example13-06.html">こちら</a>
+    へアクセスしてください
+    <form action="http://localhost:18080/example13-05.php" method="GET">
+      <div class="elem">
+        <select onchange="populateList()">
+          <option value="HO">北海道</option>
+          <option value="FU">福井県</option>
+          <option value="NA">長野県</option>
+          <option value="OK">沖縄県</option>
+        </select>
+      </div>
+      <h3>都市</h3>
+      <div class="elem">
+        <select id="cities"></select>
+      </div>
+    </form>
+  </body>
+</lang:html>
