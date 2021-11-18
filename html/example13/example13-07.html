@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<lang:html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>例13-7 Googleマップの使用例(残念ながら現在は動かず)</title>
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuWhIrootTD-qpxaFMqnPKBqJ0GiO6KzU&callback=initMap"
+      type="text/javascript"
+    ></script>
+    <script type="text/javascript">
+      // <![CDATA[
+      function load() {
+        if (GBrowserIsCompatible()) {
+          var map = new GMap2(document.getElementById('map'));
+          map.addControl(new GSmallMapControl());
+          map.addControl(new GMapTypeControl());
+          map.setCenter(new GLatLng(38.624464, -90.18496), 15);
+
+          GEvent.addListener(map, 'click', function (marker, point) {
+            if (marker) {
+              map.removeOverlay(marker);
+            } else {
+              marker = new GMarker(point);
+              map.addOverlay(marker);
+              marker.openInfoWindowHtml(point.lat() + ' ' + point.lng());
+            }
+          });
+        }
+      }
+      // ]]
+    </script>
+  </head>
+  <body onload="load()" onunload="GUnload()">
+    <div id="map" style="width: 500px; height: 300px"></div>
+  </body>
+</lang:html>

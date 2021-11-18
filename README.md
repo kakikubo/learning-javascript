@@ -424,3 +424,23 @@ div ブロック内にさらに別のブロックがあり、その中でスタ�
 
 width と height を 0 にする。
 または visibility を hidden にする
+
+### exam13-1
+
+XMLHttpRequest.open の第 3 引数を false にする
+
+### exam13-2
+
+XMLHttpRequest のプロパティである onReadyStateChange
+を介してコールバック関数を割り当てる
+
+### exam13-3
+
+XMLHttpRequest のプロパティ readyState は完了時に 4 になる。
+status は 200 になる。
+
+### exam13-4
+
+- html
+- xml(xslt)
+- json
