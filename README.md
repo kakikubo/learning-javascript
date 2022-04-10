@@ -15,14 +15,16 @@ html/ - HTML のサンプルを配置する
 
 ### exam2-1
 
-$someVariable 有効
-\_someVariable 有効
-1Variable 数字ではじめる事はできない。無効
-some_variable 有効
-som&#232;variable 特殊文字がつかえないので無効
-function 予約語なので無効
-.someVariable .は使えないので無効
-some*variable *は使えないので無効
+```javascript
+$someVariable     // 有効
+\_someVariable    // 有効
+1Variable         // 数字ではじめる事はできない。無効
+some_variable     // 有効
+som&#232;variable // 特殊文字がつかえないので無効
+function          // 予約語なので無効
+.someVariable     // .は使えないので無効
+some*variable     // *は使えないので無効
+```
 
 ### exam2-2
 
@@ -261,7 +263,6 @@ html タグや javascript コードそのものを escape する
 
 - ショッピングカート
 - 検索履歴
--
 
 ### exam9-1
 
